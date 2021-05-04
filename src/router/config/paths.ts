@@ -1,0 +1,11 @@
+export const LOGIN = '/login';
+export const ADMIN = '/admin';
+export const DASHBOARD = '/admin/dashboard';
+export const QUESTIONS = '/admin/questions';
+export const QUESTION = '/admin/questions/:id';
+export const SECTION = '/admin/sections/:id';
+export const SECTIONS = '/admin/sections';
+export const CATEGORY = '/admin/categories/:id';
+export const CATEGORIES = '/admin/categories';
+export const USER = '/admin/users/:id';
+export const USERS = '/admin/users';
