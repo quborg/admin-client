@@ -1,10 +1,10 @@
 {
-  "name": "admin-panel-client",
+  "name": "ecom-app-now-admin",
   "version": "0.1.0",
+  "license": "MIT",
   "private": false,
-  "description": "Admin Panel; react-ts, apollo, graphql, material ui",
-  "homepage": "./",
-  "repository": "git@github.com:quborg/admin-client.git",
+  "description": "Admin Panel; react-ts, apollo-client, mui",
+  "repository": "git@github.com:quborg/e-comm-admin.git",
   "contributors": [
     {
       "name": "Miloud Lafttah",
@@ -15,7 +15,7 @@
     "yarn": ">=1.22.x"
   },
   "main": "./server.js",
-  "license": "MIT",
+  "homepage": "./",
   "scripts": {
     "start": "node ./server.js",
     "dev": "react-scripts start",
@@ -56,14 +56,20 @@
   "cacheDirectories": [
     "node_modules"
   ],
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ]
+  },
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
@@ -87,6 +93,9 @@
     "typescript": "^4.1.5"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.8",
     "@types/jest": "^24.0.0",
     "@types/mui-datatables": "^3.7.1",
     "@types/node": "^12.0.0",
@@ -95,6 +104,7 @@
     "@types/react-router-dom": "^5.1.7",
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.2"
   }
 }
