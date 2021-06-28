@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Box, Container, CssBaseline, Paper, withStyles } from '@material-ui/core';
-import { Transition } from 'src/theme/components';
+import { IrinaBackground, Transition } from 'src/theme/components';
 import { CssGlobal } from 'src/theme/styles';
 
 import { Copyright, Footer, Forms, Title } from './components';
@@ -16,8 +16,15 @@ const Sign: React.FC<TYPES.ClassesProps> = (props) => {
     <Container className={classes.container} component="main" maxWidth="sm">
       <CssBaseline />
       <CssGlobal />
-      <Box alignItems="center" display="flex" height="100vh">
-        <Box display="flex" flexDirection="column" height="inherit" mx={3} width="1">
+      <Box alignItems="center" display="flex" height="100vh" position="relative">
+        <IrinaBackground />
+        <Box
+          display="flex"
+          flexDirection="column"
+          height="inherit"
+          mx={3}
+          width="1"
+          zIndex={1}>
           <Box mt="auto">
             <Transition in={reset || (!reset && up) || (!reset && !up)}>
               <Paper className={classes.paper} elevation={10}>

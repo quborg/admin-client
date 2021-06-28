@@ -30,6 +30,14 @@ const CssGlobal = withStyles(({ spacing, palette }: Theme) => ({
     body: {
       backgroundColor: palette.common.chocolate,
     },
+    '@keyframes irinaDrop': {
+      '0%': {
+        top: '-50%',
+      },
+      '100%': {
+        top: '110%',
+      },
+    },
   },
 }))(() => null);
 

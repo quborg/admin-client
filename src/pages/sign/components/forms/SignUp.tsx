@@ -31,10 +31,11 @@ const SignUp: React.FC<TYPES.ClassesProps> = (props) => {
 
   const handleSignUp = (): void => {
     const { name, username, email, password } = inputs;
-    if (!name) setErrors({ name: 'Empty "name" field' });
-    if (!username) setErrors({ username: 'Empty "username" field' });
-    if (!email) setErrors({ email: 'Empty "email" field' });
-    if (!password) setErrors({ password: 'Empty "password" field' });
+    if (!name) setErrors({ ...errors, name: 'Empty "name" field' });
+    if (!username) setErrors({ ...errors, username: 'Empty "username" field' });
+    if (!email) setErrors({ ...errors, email: 'Empty "email" field' });
+    if (!password) setErrors({ ...errors, password: 'Empty "password" field' });
+    console.log(!!errors.name, !!errors.username, !!errors.email, !!errors.password);
     if (name && username && email && password) {
       signUp({ variables: { inputs } })
         .then(({ data }) => {
@@ -99,12 +100,12 @@ const SignUp: React.FC<TYPES.ClassesProps> = (props) => {
       </FormControl>
       <FormControl className={classes.field} fullWidth required>
         <TextField
-          autoComplete="current-password"
+          autoComplete="password"
           error={!!errors.password}
           helperText={!!errors.password && 'must not be empty <'}
           label="Password *"
           onChange={(e) => {
-            setInputs({ email: e.target.value });
+            setInputs({ password: e.target.value });
             setErrors({});
           }}
           type="password"

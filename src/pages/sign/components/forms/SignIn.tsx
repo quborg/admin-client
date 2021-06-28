@@ -23,13 +23,13 @@ const SignIn: React.FC<TYPES.ClassesProps> = (props) => {
   const [errors, setErrors] = useState<TYPES.SignInArgs>({});
   const [isLogged, setIsLogged] = useState(false);
 
-  const [login, { data, loading, error }] = useLazyQuery(Query.USER.SIGN_IN);
+  const [signIn, { data, loading, error }] = useLazyQuery(Query.USER.SIGN_IN);
 
   useEffect(() => {
     if (error?.message) reactiveAlert(error.message, KEYS.error);
-    if (data?.login?.token) {
+    if (data?.signIn?.token) {
       setIsLogged(true);
-      localStorage.setItem('user', JSON.stringify(data.login));
+      localStorage.setItem('user', JSON.stringify(data.signIn));
     }
   }, [error, data, setIsLogged]);
 
@@ -38,7 +38,7 @@ const SignIn: React.FC<TYPES.ClassesProps> = (props) => {
     if (!email) setErrors({ email: 'Empty email field' });
     if (!password) setErrors({ password: 'Empty password field' });
     if (email && password) {
-      login({ variables: { args } });
+      signIn({ variables: { args } });
     }
   };
 

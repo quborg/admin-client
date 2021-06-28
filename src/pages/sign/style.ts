@@ -1,4 +1,4 @@
-import { lighten, Theme } from '@material-ui/core';
+import { fade, lighten, Theme } from '@material-ui/core';
 
 const style = (theme: Theme): any => ({
   container: {
@@ -18,7 +18,7 @@ const style = (theme: Theme): any => ({
     alignContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('xl')]: { width: '100%' },
-    backgroundColor: theme.palette.common.olive,
+    backgroundColor: fade(theme.palette.common.olive, 0.9),
     border: '1px solid',
     borderColor: lighten(theme.palette.common.olive, 0.2),
   }),

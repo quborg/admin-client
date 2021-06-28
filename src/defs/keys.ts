@@ -7,7 +7,7 @@ export default {
   update: 'update',
   delete: 'delete',
   refetch: 'refetch',
-  login: 'login',
+  sign: 'sign',
   token: 'token',
   success: <Color>'success',
   error: <Color>'error',

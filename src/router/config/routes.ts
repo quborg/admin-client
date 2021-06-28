@@ -10,7 +10,7 @@ import * as PATHS from './paths';
 
 export const parentRoutes: TYPES.RouteConfigProps[] = [
   {
-    key: KEYS.login,
+    key: KEYS.sign,
     path: PATHS.SIGN,
     component: Sign,
   },
