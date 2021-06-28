@@ -21,7 +21,7 @@ import EditSaveButton from '../components/EditSaveButton';
 import style from './style';
 
 const Question: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
-  const [data, setData] = useState<SCHEMA.Question>(Data);
+  const [data, setData] = useState<SCHEMA.User>(Data);
   const [editable, setEditable] = useState(false);
 
   return (
@@ -40,9 +40,9 @@ const Question: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
               <Box color="text.secondary" component="span">
                 {'By: '}
                 <Box color="text.primary" component="span">
-                  {`${data?.createdBy?.username}, `}
+                  {`${data?.username}, `}
                 </Box>
-                {moment(data?.publishedAt).fromNow()}
+                {/* {moment(data?.publishedAt).fromNow()} */}
               </Box>
             </Typography>
           </Box>
@@ -64,7 +64,7 @@ const Question: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
           }}>
           <Icons.CloseRounded color="error" />
         </IconButton>
-        <FormControl className={classes.form} fullWidth required>
+        {/* <FormControl className={classes.form} fullWidth required>
           <TextField
             disabled={!editable}
             InputLabelProps={{ shrink: Boolean(data?.title) }}
@@ -106,7 +106,7 @@ const Question: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
             disabled={!editable}
             onChange={(subcats) => setData({ ...data, subcats })}
           />
-        </FormControl>
+        </FormControl> */}
       </Box>
     </Box>
   );

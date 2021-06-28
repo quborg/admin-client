@@ -1,3 +1,6 @@
+import { Colorize } from '@material-ui/icons';
+import { Color } from '@material-ui/lab';
+
 export default {
   prefersDarkMode: 'prefersDarkMode',
   action: 'action',
@@ -6,6 +9,10 @@ export default {
   refetch: 'refetch',
   login: 'login',
   token: 'token',
+  success: <Color>'success',
+  error: <Color>'error',
+  info: <Color>'info',
+  warning: <Color>'warning',
   admin: 'admin',
   redirect: 'redirect',
   dashboard: 'dashboard',

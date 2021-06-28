@@ -1,8 +1,8 @@
 import Categories from './Categories';
-import Sections from './Sections';
+// import Sections from './Sections';
 
 const Select = {
-  Sections,
+  Sections: {},
   Categories,
 };
 

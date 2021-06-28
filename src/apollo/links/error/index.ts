@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { onError } from '@apollo/client/link/error';
 
-import consoleLogGroupError from './consoleLogGroupError';
+import consoleError from './consoleError';
 
 const isUnauthenticated = ({ message, extensions }): boolean =>
   (extensions && extensions.code === 'UNAUTHENTICATED') ||
@@ -9,14 +9,14 @@ const isUnauthenticated = ({ message, extensions }): boolean =>
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    consoleLogGroupError.header();
+    consoleError.header();
     graphQLErrors.forEach((error) => {
       if (isUnauthenticated(error)) {
         localStorage.setItem('token', '');
       }
-      consoleLogGroupError.body(error);
+      consoleError.body(error);
     });
-    consoleLogGroupError.footer();
+    consoleError.footer();
   }
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });

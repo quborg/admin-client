@@ -64,7 +64,7 @@ const UserMenu: React.FC<TYPES.ClassesProps> = ({ classes }) => {
           onClick={() => {
             localStorage.setItem('token', '');
             localStorage.setItem('user', '');
-            history.push(PATHS.LOGIN);
+            history.push(PATHS.SIGN);
           }}>
           <ListItemIcon>
             <ExitToAppIcon />

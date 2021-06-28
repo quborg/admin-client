@@ -70,6 +70,10 @@ export function CreateTheme(): ThemeData {
     });
   }, []);
 
+  theme.shadows[24] = `inset 0px 3px 3px -2px rgb(0 0 0 / 20%), \
+                       inset 0px 3px 4px 0px rgb(0 0 0 / 14%), \
+                       inset 0px 1px 8px 0px rgb(0 0 0 / 12%)`;
+
   return { theme, toggleTheme };
 }
 

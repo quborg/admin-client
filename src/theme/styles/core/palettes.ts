@@ -1,8 +1,8 @@
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 
 const palette: PaletteOptions = {
-  primary: { main: '#1A68D1' },
-  secondary: { main: '#6E84A3' },
+  primary: { main: '#7ec244' },
+  secondary: { main: '#d2691e' },
   success: { main: '#00D97E' },
   info: { main: '#39AFD1' },
   warning: { main: '#F6C343' },
@@ -22,6 +22,10 @@ const palette: PaletteOptions = {
     green: '#00D97E',
     teal: '#02A8B5',
     cyan: '#39AFD1',
+    chocolate: '#d2691e',
+    olive: '#808000',
+    burlyWood: '#deb887',
+    bisque: '#ffe4c4',
   },
 };
 

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
     "target": "es5",
@@ -24,6 +24,6 @@
     "resolveJsonModule": true
   },
   "include": [
-    "src"
+    "./src"
   ]
 }

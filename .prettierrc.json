@@ -7,5 +7,13 @@
   "printWidth": 95,
   "tabWidth": 2,
   "useTabs": false,
-  "react/jsx-max-props-per-line": [5, { "when": "always" }]
+  "react/jsx-max-props-per-line": [5, { "when": "always" }],
+  "overrides": [
+    {
+      "files": ["./src/defs/types/**/*.ts"],
+      "options": {
+        "printWidth": 105
+      }
+    }
+  ]
 }

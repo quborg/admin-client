@@ -13,6 +13,8 @@ declare namespace TYPES {
   import { MUIDataTableOptions, MUIDataTableProps } from 'mui-datatables';
   import KEYS from 'src/defs/keys';
 
+  type MaybeIn<T> = { [P in keyof T]?: T[P] };
+
   type OneOfItem = KEYS.question | KEYS.section | KEYS.category | KEYS.user;
   type OneOfItems = KEYS.questions | KEYS.sections | KEYS.categories | KEYS.users;
 

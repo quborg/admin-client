@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { FormControl, FormHelperText, TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
-import { Queries } from 'src/graphql';
+import { Query } from 'src/graphql';
 
 const Categories: React.FC<TYPES.SelectCategories> = ({ defaultName, disabled, onChange }) => {
-  const [value, setValue] = useState<SCHEMA.CategoryInputs>({ _englishName: defaultName });
+  const [value, setValue] = useState<TYPES.MaybeIn<SCHEMA.Category>>({ name: defaultName });
   const [inputValue, setInputValue] = useState('');
-  const [options, setOptions] = useState<SCHEMA.CategoryInputs[]>([]);
-  const { loading, error, data = { getCategories: [] } } = useQuery(Queries.CATEGORIES);
+  const [options, setOptions] = useState<SCHEMA.Category[]>([]);
+  const { loading, error, data = { getCategories: [] } } = useQuery(Query.USER.USER);
 
   useEffect(() => {
     if (options.length !== data.getCategories.length)
-      setOptions(data.getCategories.map(({_id, ...rest}) => rest));
+      setOptions(data.getCategories.map(({ _id, ...rest }) => rest));
   }, [data, options, setOptions]);
 
   return (
@@ -21,7 +21,7 @@ const Categories: React.FC<TYPES.SelectCategories> = ({ defaultName, disabled, o
       <Autocomplete
         disabled={disabled}
         fullWidth
-        getOptionLabel={(option) => option._englishName || ''}
+        getOptionLabel={(option) => option.name || ''}
         inputValue={inputValue}
         loading={loading}
         onChange={(e, val) => {

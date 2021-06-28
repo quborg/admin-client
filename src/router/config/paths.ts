@@ -1,4 +1,4 @@
-export const LOGIN = '/login';
+export const SIGN = '/sign';
 export const ADMIN = '/admin';
 export const DASHBOARD = '/admin/dashboard';
 export const QUESTIONS = '/admin/questions';

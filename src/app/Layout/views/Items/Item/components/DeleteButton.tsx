@@ -5,14 +5,14 @@ import { ApolloError, useMutation } from '@apollo/client';
 import * as Icons from '@material-ui/icons';
 import { ReactiveVars } from 'src/apollo';
 import KEYS from 'src/defs/keys';
-import { Mutations } from 'src/graphql';
+import { Mutation } from 'src/graphql';
 import { PATHS } from 'src/router';
 import { Alert, Button, Dialog } from 'src/theme/components';
 
 const DeleteButtonID: React.FC<TYPES.ItemDeleteButtonProps> = ({ _id, itemName, history }) => {
   const [ITEM] = useState(itemName.toUpperCase());
   const [error, setError] = useState<ApolloError>();
-  const [removeIdem, { loading, error: Error }] = useMutation(Mutations[ITEM].DELETE);
+  const [removeIdem, { loading, error: Error }] = useMutation(Mutation[ITEM].DELETE);
   const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {

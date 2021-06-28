@@ -15,7 +15,7 @@ declare namespace TYPES {
     label?: string;
     editable?: boolean;
     aspectRatio?: number;
-    onChange?:  (e: any) => void
+    onChange?: (e: any) => void;
   };
 
   type DialogProps = {
@@ -27,4 +27,9 @@ declare namespace TYPES {
   type TableOptions = MUIDataTableOptions;
   type TableComponents = MUIDataTableProps.components;
   type TableProps = EntitiesViewProps;
+
+  type TransitionProps = {
+    in?: boolean;
+    children: ReactNode;
+  };
 }

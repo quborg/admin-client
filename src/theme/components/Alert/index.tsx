@@ -48,7 +48,7 @@ const Alert: FC<TYPES.AlertProps> = ({
     setSeverity(alert.severity);
   }, [data, setOpen, setMessage, setSeverity]);
 
-  if (expired) return <Redirect to={PATHS.LOGIN} />;
+  if (expired) return <Redirect to={PATHS.SIGN} />;
 
   if (loading) return <LinearProgress className={classes.progress} color="secondary" />;
 

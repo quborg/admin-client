@@ -6,3 +6,4 @@ export { default as Dialog } from './Dialog';
 export { default as Drawer } from './Drawer';
 export { default as Image } from './Image';
 export { default as Table } from './Table';
+export { default as Transition } from './Transition';

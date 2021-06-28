@@ -4,7 +4,7 @@ import { ApolloError, useMutation } from '@apollo/client';
 import * as Icons from '@material-ui/icons';
 import { ReactiveVars } from 'src/apollo';
 import KEYS from 'src/defs/keys';
-import { Mutations } from 'src/graphql';
+import { Mutation } from 'src/graphql';
 import { Alert, Button, Dialog } from 'src/theme/components';
 
 const EditSaveButton: React.FC<TYPES.ItemEditSaveButtonProps> = ({
@@ -15,7 +15,7 @@ const EditSaveButton: React.FC<TYPES.ItemEditSaveButtonProps> = ({
 }) => {
   const [ITEM] = useState(itemName.toUpperCase());
   const [error, setError] = useState<ApolloError>();
-  const [editItem, { loading, error: Error }] = useMutation(Mutations[ITEM].UPDATE);
+  const [editItem, { loading, error: Error }] = useMutation(Mutation[ITEM].UPDATE);
   const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {

@@ -8,5 +8,3 @@ export const MuiButtonPropsColors: Array<string> = [
 ];
 
 export const srcDefaultAvatar: string = [SITE_DOMAIN, '/avatar/default.png'].join('');
-
-export default {};

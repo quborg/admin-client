@@ -1,4 +1,5 @@
 import { ComponentNameToClassKey } from '@material-ui/core/styles/overrides';
+import { FlexDirectionProperty } from '@material-ui/styles/node_modules/csstype';
 
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
@@ -7,7 +8,7 @@ declare module '@material-ui/core/styles/overrides' {
         maxHeight: string;
         overflow: string;
         display: string;
-        flexDirection: string;
+        flexDirection: FlexDirectionProperty;
       };
     };
   }
@@ -29,5 +30,9 @@ declare module '@material-ui/core/styles/createPalette' {
     green: string;
     teal: string;
     cyan: string;
+    chocolate: string;
+    olive: string;
+    burlyWood: string;
+    bisque: string;
   }
 }

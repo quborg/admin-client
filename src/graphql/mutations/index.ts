@@ -1,7 +1,1 @@
-import * as QUESTION from './question';
-import * as SECTION from './section';
-
-export default {
-  QUESTION,
-  SECTION,
-};
+export * as USER from './user';

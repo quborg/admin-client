@@ -1,19 +1,19 @@
-import { withStyles } from '@material-ui/core';
+import { Theme, withStyles } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-const CssGlobal = withStyles(({ spacing, palette }) => ({
+const CssGlobal = withStyles(({ spacing, palette }: Theme) => ({
   '@global': {
     '.AppGutterLeftZero': {
       paddingLeft: '0',
     },
-    '::-webkit-scrollbar': {
+    '.scrollbar::-webkit-scrollbar': {
       width: spacing(0.5),
       height: spacing(0.625),
     },
-    '::-webkit-scrollbar-track': {
+    '.scrollbar::-webkit-scrollbar-track': {
       boxShadow: ['inset 0 0 6px', fade(palette.common.grayDark, 0.2)].join(' '),
     },
-    '::-webkit-scrollbar-thumb': {
+    '.scrollbar::-webkit-scrollbar-thumb': {
       backgroundColor: fade(palette.common.gray, 0.5),
       borderRadius: '2rem',
       '&:hover': {
@@ -26,6 +26,9 @@ const CssGlobal = withStyles(({ spacing, palette }) => ({
     },
     '[hidden]': {
       display: 'none !important',
+    },
+    body: {
+      backgroundColor: palette.common.chocolate,
     },
   },
 }))(() => null);
