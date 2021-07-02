@@ -6,7 +6,7 @@ const palette: PaletteOptions = {
   success: { main: '#00D97E' },
   info: { main: '#39AFD1' },
   warning: { main: '#F6C343' },
-  error: { main: '#d60026' },
+  error: { main: '#cc2c09' },
   common: {
     light: '#EDF2F9',
     dark: '#12263F',
@@ -16,7 +16,7 @@ const palette: PaletteOptions = {
     indigo: '#727CF5',
     purple: '#6B5EAE',
     pink: '#FF679B',
-    red: '#d60026',
+    red: '#cc2c09',
     orange: '#FD7E14',
     yellow: '#F6C343',
     green: '#00D97E',

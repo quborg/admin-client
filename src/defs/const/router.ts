@@ -1,6 +1,7 @@
+import { capitalize } from 'src/helpers';
+
 import { ArrayOfItemsNames } from './app';
 
-export const capitalize = (word): string => word.charAt(0).toUpperCase() + word.slice(1);
 export const withGet = (word): string => ['get', word].join('');
 export const toSingular = (word): string => word.replace(/ies$/g, 'y').replace(/s$/g, '');
 export const toPlural = (word): string =>

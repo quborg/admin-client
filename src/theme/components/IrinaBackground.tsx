@@ -1,4 +1,4 @@
-import { Theme, withStyles } from '@material-ui/core';
+import { fade, Theme, withStyles } from '@material-ui/core';
 
 const style = (theme: Theme): any => ({
   lines: {
@@ -16,7 +16,7 @@ const style = (theme: Theme): any => ({
     width: '1px',
     height: '100%',
     top: '0',
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: fade(theme.palette.primary.main, 0.1),
     overflow: 'hidden',
     '&::after': {
       content: '""',

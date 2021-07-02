@@ -22,6 +22,10 @@ declare namespace TYPES {
     classes: any;
   }
 
+  interface ThemeProps {
+    theme: Theme;
+  }
+
   interface IsProp extends ClassesProps {
     is: boolean;
   }

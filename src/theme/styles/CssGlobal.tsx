@@ -38,6 +38,11 @@ const CssGlobal = withStyles(({ spacing, palette }: Theme) => ({
         top: '110%',
       },
     },
+    input: {
+      '&:-webkit-autofill': {
+        '-webkit-box-shadow': `inset 0 0 0 100px ${palette.warning.dark}`,
+      },
+    },
   },
 }))(() => null);
 

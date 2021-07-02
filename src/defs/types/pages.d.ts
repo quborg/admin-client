@@ -5,6 +5,8 @@ declare namespace TYPES {
 
   type SignInArgs = { email?: string; password?: string };
 
+  type SignErrors<T> = { flag?: boolean } & { [P in keyof T]: T[P] };
+
   type SignVariants = {
     up: boolean;
     reset: boolean;

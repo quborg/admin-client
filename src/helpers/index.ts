@@ -3,8 +3,13 @@ import jwt from 'jsonwebtoken';
 import { ReactiveVars } from 'src/apollo';
 import CONST from 'src/defs/const';
 
-export const reactiveAlert = (message: string, severity: Color, open = true): void => {
-  ReactiveVars.alert({ message, open, severity });
+export const reactiveAlert = (
+  message: string | boolean,
+  severity?: Color,
+  open = true
+): void => {
+  if (typeof message === 'boolean') ReactiveVars.alert({ loading: true });
+  else ReactiveVars.alert({ message, open, severity });
 };
 
 export const isTokenValid = (): boolean => {
@@ -20,3 +25,5 @@ export const isTokenValid = (): boolean => {
   }
   return valid;
 };
+
+export const capitalize = (W: string): string => W.charAt(0).toUpperCase() + W.slice(1);

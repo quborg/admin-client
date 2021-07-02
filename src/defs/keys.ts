@@ -1,4 +1,3 @@
-import { Colorize } from '@material-ui/icons';
 import { Color } from '@material-ui/lab';
 
 export default {

@@ -2,13 +2,14 @@ import React, { FC, useCallback, useContext, useState } from 'react';
 
 import {
   createMuiTheme,
+  ThemeProvider as MuiThemeProvider,
   PaletteType,
   Theme,
-  ThemeProvider,
   useMediaQuery,
 } from '@material-ui/core';
 import KEYS from 'src/defs/keys';
 
+import { Alert } from './components';
 import { initialThemeObject } from './styles/core';
 
 type ThemePreferenceObject = { prefersDarkMode: boolean };
@@ -86,13 +87,16 @@ export function useTheme(): ThemeData {
   return useContext(ThemeContext);
 }
 
-const CustomThemeProvider: FC = ({ children }) => {
+const ThemeProvider: FC = ({ children }) => {
   const theme = CreateTheme();
   return (
     <ThemeContext.Provider value={theme}>
-      <ThemeProvider theme={theme.theme}>{children}</ThemeProvider>
+      <MuiThemeProvider theme={theme.theme}>
+        {children}
+        <Alert />
+      </MuiThemeProvider>
     </ThemeContext.Provider>
   );
 };
 
-export default CustomThemeProvider;
+export default ThemeProvider;

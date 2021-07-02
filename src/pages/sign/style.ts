@@ -24,10 +24,6 @@ const style = (theme: Theme): any => ({
   }),
   field: { width: '100%', marginTop: theme.spacing(3) },
   button: { margin: theme.spacing(3, 0, 2) },
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
-  },
   footer: {},
 });
 

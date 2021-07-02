@@ -18,8 +18,15 @@ export const NAME_CASES = gql`
   }
 `;
 
+export const INPUTS_ERRORS = gql`
+  query InputsErrors {
+    inputsErrors @client
+  }
+`;
+
 export default {
   ACTION,
   ALERT,
   NAME_CASES,
+  INPUTS_ERRORS,
 };
