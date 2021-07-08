@@ -7,18 +7,22 @@ declare namespace TYPES {
 
   type SignErrors<T> = { flag?: boolean } & { [P in keyof T]: T[P] };
 
-  type SignVariants = {
+  type FormTypes = {
     up: boolean;
     reset: boolean;
   };
-  type SignSetStates = {
+  type FormTypesSetStates = {
     setUp: React.Dispatch;
     setReset: React.Dispatch;
   };
 
-  type FormsProps = SignVariants;
+  type FormsProps = FormTypes;
 
-  type SignTitleProps = ClassesProps & Theme & SignVariants;
+  type SignTitleProps = ClassesProps & Theme & FormTypes;
 
-  type SignFooterProps = ClassesProps & Theme & SignVariants & SignSetStates;
+  type SignFooterProps = ClassesProps & Theme & FormTypes & FormTypesSetStates;
+
+  type FormInputs = SignUpInputs | ResetInputs | SignInArgs;
+
+  type FormControlInputs = ClassesProps & { inputs: FormInputs };
 }

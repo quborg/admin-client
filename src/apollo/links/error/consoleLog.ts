@@ -13,7 +13,7 @@ const consoleLogGroupError = {
   header: (): void => group('%c======= start [GraphQL error] =======', s.h),
   body: ({ message, path, locations, extensions }: GraphQLError): void => {
     group('%c%s', s.m, message);
-    if (extensions?.errors) log('errors: ', stringify(extensions.errors));
+    if (extensions?.errors) log('errors: ', extensions.errors);
     log('%cPath: %OLocations:%O', s.t, path, locations);
     log('%cPath: %OLocations:%O', s.t, stringify(path), stringify(locations));
     error('-- system --');

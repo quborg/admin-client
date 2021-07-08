@@ -16,5 +16,5 @@ export const popOriginPosition = (
   horizontal,
 });
 
-export const ArrayOfItemNames = [KEYS.question, KEYS.section, KEYS.category, KEYS.user];
-export const ArrayOfItemsNames = [KEYS.questions, KEYS.sections, KEYS.categories, KEYS.users];
+export const ArrayOfItemNames = [KEYS.category, KEYS.user];
+export const ArrayOfItemsNames = [KEYS.categories, KEYS.users];

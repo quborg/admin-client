@@ -1,6 +1,6 @@
 import { fade, Theme, withStyles } from '@material-ui/core';
 
-const style = (theme: Theme): any => ({
+const style = (theme: Theme, color = theme.palette.warning.main): any => ({
   lines: {
     zIndex: '0',
     position: 'absolute',
@@ -16,7 +16,8 @@ const style = (theme: Theme): any => ({
     width: '1px',
     height: '100%',
     top: '0',
-    background: fade(theme.palette.primary.main, 0.1),
+    background: fade(color, 0.1),
+    opacity: 0.3,
     overflow: 'hidden',
     '&::after': {
       content: '""',
@@ -26,22 +27,24 @@ const style = (theme: Theme): any => ({
       width: '100%',
       top: '-50%',
       left: '0',
-      background:
-        'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%)',
-      animation: 'irinaDrop 7s 0s infinite',
+      background: `linear-gradient(to bottom, ${fade(
+        color,
+        0
+      )} 0%, ${color} 30%, ${color} 50%)`,
+      animation: 'irinaDrop 1s 0s infinite',
       animationFillMode: 'forwards',
       animationTimingFunction: 'cubic-bezier(0.4, 0.26, 0, 0.97)',
     },
     '&:nth-child(1)': {
       marginLeft: '10%',
       '&::after': {
-        animationDelay: '5s',
+        animationDelay: '0.9s',
       },
     },
     '&:nth-child(2)': {
       marginLeft: '30%',
       '&::after': {
-        animationDelay: '2s',
+        animationDelay: '0.3s',
       },
     },
     '&:nth-child(3)': {
@@ -50,13 +53,13 @@ const style = (theme: Theme): any => ({
     '&:nth-child(4)': {
       marginLeft: '70%',
       '&::after': {
-        animationDelay: '2.5s',
+        animationDelay: '0.65s',
       },
     },
     '&:nth-child(5)': {
       marginLeft: '90%',
       '&::after': {
-        animationDelay: '4.5s',
+        animationDelay: '0.45s',
       },
     },
   },

@@ -25,10 +25,10 @@ const EditSaveButton: React.FC<TYPES.ItemEditSaveButtonProps> = ({
   const onConfirm = (flag: boolean): void => {
     if (flag) {
       let cleanInputs = data;
-      if (itemName === KEYS.section) {
-        const { totalQuestions, lastQuestionAt, ...rest } = data;
-        cleanInputs = rest;
-      }
+      // if (itemName === KEYS.section) {
+      //   const { totalQuestions, lastQuestionAt, ...rest } = data;
+      //   cleanInputs = rest;
+      // }
       editItem({
         variables: { inputs: cleanInputs },
       })

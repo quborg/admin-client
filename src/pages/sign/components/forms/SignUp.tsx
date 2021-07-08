@@ -2,52 +2,54 @@ import { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
-import { Button, FormControl, TextField, withStyles } from '@material-ui/core';
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  IconButton,
+  InputAdornment,
+  TextField,
+  withStyles,
+} from '@material-ui/core';
+import * as Icons from '@material-ui/icons';
 import { CONST, KEYS } from 'src/defs';
 import { Mutation, State } from 'src/graphql';
-import { capitalize, reactiveAlert } from 'src/helpers';
+import { capitalize, reactiveAlert, validateEmptyForm } from 'src/helpers';
 import { PATHS } from 'src/router';
 
+import Inputs from './Inputs';
 import style from '../../style';
 
-const SignUp: React.FC<TYPES.ClassesProps & TYPES.ThemeProps> = ({ classes, theme }) => {
-  const [inputs, setInputs] = useState<TYPES.SignUpInputs>({ ...CONST.Pages.SIGN_UP_INIT });
+const SignUp: React.FC<TYPES.ClassesProps> = ({ classes }) => {
+  const [inputs, setInputs] = useState<TYPES.SignUpInputs>(CONST.Pages.SIGN_UP_INIT);
   const [errors, setErrors] = useState<TYPES.SignErrors<TYPES.SignUpInputs>>({ flag: false });
   const [isLogged, setIsLogged] = useState(false);
 
-  const [signUp, { loading, error }] = useMutation(Mutation.USER.SIGN_UP);
-  const { data: inputsErrors } = useQuery(State.INPUTS_ERRORS);
-
-  useEffect(() => {
-    if (error?.message) reactiveAlert(error.message, KEYS.error);
-  }, [error]);
-
-  useEffect(() => {
-    // TODO
-  }, [inputsErrors]);
+  const [signUp, { loading }] = useMutation(Mutation.USER.SIGN_UP);
+  const { data } = useQuery(State.INPUTS_ERRORS);
 
   if (loading) reactiveAlert(true);
 
+  useEffect(() => {
+    if (data?.inputsErrors?.flag) {
+      setErrors(data.inputsErrors);
+    }
+  }, [data, setErrors]);
+
   const handleSignUp = (): void => {
-    let errorsState = { flag: false };
-    errorsState = Object.keys(inputs).reduce(
-      (e, k) => ({
-        ...e,
-        [k]: inputs[k] ? '' : `Empty ${k} field`,
-        flag: e.flag || !inputs[k],
-      }),
-      errorsState
-    );
-    setErrors(errorsState);
-    if (errorsState.flag) reactiveAlert('Please correct the errors!', KEYS.error);
-    else
+    setErrors({ flag: false });
+    const errorsState = validateEmptyForm(inputs);
+    if (errorsState.flag) {
+      setErrors(errorsState);
+      reactiveAlert('Please correct the errors !', KEYS.error);
+    } else
       signUp({ variables: { inputs } })
         .then(({ data: { signUp: user = {} } }) => {
           if (user?.token) {
-            reactiveAlert('Successful Sign up!', KEYS.success);
+            reactiveAlert('Successful Sign up !', KEYS.success);
             setIsLogged(true);
             localStorage.setItem('user', JSON.stringify(user));
-          } else reactiveAlert('Failed to reach the server!', KEYS.error);
+          } else reactiveAlert('Server failed !', KEYS.error);
         })
         .catch((err) => {
           reactiveAlert(err.message, KEYS.error);
@@ -58,28 +60,7 @@ const SignUp: React.FC<TYPES.ClassesProps & TYPES.ThemeProps> = ({ classes, them
     <Redirect to={PATHS.DASHBOARD} />
   ) : (
     <>
-      {Object.keys(inputs).map((inputName) => (
-        <FormControl
-          className={classes.field}
-          fullWidth
-          key={`${inputName}-sign-up-input`}
-          required>
-          <TextField
-            autoComplete={inputName}
-            autoFocus
-            error={!!errors[inputName]}
-            helperText={!!errors[inputName] && 'must not be empty'}
-            label={`${capitalize(inputName)} *`}
-            onChange={(e) => {
-              setInputs({ ...inputs, [inputName]: e.target.value });
-              setErrors({ ...errors, [inputName]: '' });
-            }}
-            type={['email', 'password'].includes(inputName) ? inputName : 'text'}
-            value={(inputs[inputName] && inputs[inputName]) || ''}
-            variant="outlined"
-          />
-        </FormControl>
-      ))}
+      <Inputs />
       <Button
         className={classes.button}
         color="primary"
@@ -93,4 +74,4 @@ const SignUp: React.FC<TYPES.ClassesProps & TYPES.ThemeProps> = ({ classes, them
   );
 };
 
-export default withStyles(style, { withTheme: true })(SignUp);
+export default withStyles(style)(SignUp);

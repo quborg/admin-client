@@ -1,18 +1,18 @@
 import ReactDOM from 'react-dom';
 
-import ApolloProvider from 'src/apollo';
+import ApolloClientProvider from 'src/apollo';
 // import App from 'src/app';
-import RouterProvider from 'src/router';
-import ThemeProvider from 'src/theme';
+import ReactRouterProvider from 'src/router';
+import MuiThemeProvider from 'src/theme';
 
 ReactDOM.render(
-  <ApolloProvider>
-    <ThemeProvider>
-      <RouterProvider>
+  <ApolloClientProvider>
+    <MuiThemeProvider>
+      <ReactRouterProvider>
         <></>
         {/* <App /> */}
-      </RouterProvider>
-    </ThemeProvider>
-  </ApolloProvider>,
+      </ReactRouterProvider>
+    </MuiThemeProvider>
+  </ApolloClientProvider>,
   document.getElementById('root')
 );

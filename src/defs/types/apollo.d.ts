@@ -1,11 +1,12 @@
 declare namespace TYPES {
   import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
-  type handleUpdateErrors = (errorsString: string) => void;
+  type handleUpdateErrors = (errors: ErrorsContext) => void;
 
   interface IErrorsContext {
-    title?: string;
+    message?: string;
     errors?: Maybe<{
+      flag: boolean;
       [k: string]: string;
     }>;
   }

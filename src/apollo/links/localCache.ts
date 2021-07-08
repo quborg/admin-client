@@ -4,7 +4,7 @@ import { ReactiveVars } from 'src/apollo';
 const cachePolicies: FieldPolicy = {
   keyArgs: false,
   merge: (existing = [], incoming = [], args) => {
-    // console.log('merge policy', existing, incoming, args);
+    console.log('merge policy', existing, incoming, args);
     // if ([KEYS.delete, KEYS.update, KEYS.refetch].includes(ReactiveVars.action()?.type)) {
     //   console.log('only incoming -', ReactiveVars.action()?.type, args);
     //   ReactiveVars.action({});

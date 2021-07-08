@@ -27,3 +27,13 @@ export const isTokenValid = (): boolean => {
 };
 
 export const capitalize = (W: string): string => W.charAt(0).toUpperCase() + W.slice(1);
+
+export const validateEmptyForm = (inputs: TYPES.FormInputs): TYPES.IErrorsContext['errors'] =>
+  Object.keys(inputs).reduce(
+    (e, k) => ({
+      ...e,
+      [k]: inputs[k] ? '' : `Empty ${capitalize(k)} field. Must not !`,
+      flag: e.flag || !inputs[k],
+    }),
+    { flag: false }
+  );

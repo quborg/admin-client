@@ -55,8 +55,8 @@ const Reset: React.FC<TYPES.ClassesProps> = (props) => {
     <>
       <Box className={classes.tabsReset} display="flex" my={2} width="1">
         <Button
-          color="secondary"
-          disabled={resetType === 'email'}
+          className={resetType === 'email' ? classes.flat : ''}
+          color={resetType === 'email' ? 'primary' : 'secondary'}
           fullWidth
           onClick={() => setResetType('email')}
           startIcon={<Icons.AlternateEmail />}
@@ -64,8 +64,8 @@ const Reset: React.FC<TYPES.ClassesProps> = (props) => {
           Email
         </Button>
         <Button
-          color="secondary"
-          disabled={resetType === 'sms'}
+          className={resetType === 'sms' ? classes.flat : ''}
+          color={resetType === 'sms' ? 'primary' : 'secondary'}
           fullWidth
           onClick={() => setResetType('sms')}
           startIcon={<Icons.Smartphone />}

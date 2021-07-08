@@ -43,6 +43,12 @@ const CssGlobal = withStyles(({ spacing, palette }: Theme) => ({
         '-webkit-box-shadow': `inset 0 0 0 100px ${palette.warning.dark}`,
       },
     },
+    '*': {
+      transition: `all 300ms ease-in-out, max-height 500ms ease, height 500ms ease`,
+    },
+    '.list-errors': {
+      paddingInlineStart: spacing(2),
+    },
   },
 }))(() => null);
 

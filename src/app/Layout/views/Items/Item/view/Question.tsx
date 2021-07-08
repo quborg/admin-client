@@ -47,8 +47,8 @@ const Question: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
             </Typography>
           </Box>
           <Box className={classes.tools}>
-            <EditSaveButton {...{ data, editable, setEditable }} itemName={KEYS.question} />
-            <DeleteButton _id={data?._id} itemName={KEYS.question} />
+            {/* <EditSaveButton {...{ data, editable, setEditable }} itemName={KEYS.question} />
+            <DeleteButton _id={data?._id} itemName={KEYS.question} /> */}
           </Box>
         </Box>
         <Divider />

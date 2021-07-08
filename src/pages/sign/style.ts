@@ -1,5 +1,8 @@
 import { fade, lighten, Theme } from '@material-ui/core';
 
+const duration = '500ms';
+const lineHeight = 2.375;
+
 const style = (theme: Theme): any => ({
   container: {
     backgroundColor: theme.palette.common.chocolate,
@@ -22,9 +25,38 @@ const style = (theme: Theme): any => ({
     border: '1px solid',
     borderColor: lighten(theme.palette.common.olive, 0.2),
   }),
-  field: { width: '100%', marginTop: theme.spacing(3) },
+  field: {
+    marginTop: theme.spacing(3),
+  },
+  helperText: {
+    display: 'block !important',
+    height: 0,
+  },
+  '1-list': {
+    height: theme.spacing(lineHeight),
+  },
+  '2-list': {
+    height: theme.spacing(lineHeight * 2),
+  },
+  '3-list': {
+    height: theme.spacing(lineHeight * 3),
+  },
+  '4-list': {
+    height: theme.spacing(lineHeight * 4),
+  },
+  '5-list': {
+    height: theme.spacing(lineHeight * 5),
+  },
   button: { margin: theme.spacing(3, 0, 2) },
   footer: {},
+  flat: {
+    boxShadow: '0 0',
+    '&:hover': {
+      boxShadow: '0 0',
+      cursor: 'inherit',
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
 });
 
 export default style;

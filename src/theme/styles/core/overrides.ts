@@ -1,8 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 import { Overrides } from '@material-ui/core/styles/overrides';
 
-import palette from './palettes';
-
 const defaultSpacing = createMuiTheme().spacing;
 
 const overrides: Overrides = {
@@ -17,12 +15,6 @@ const overrides: Overrides = {
     actions: {
       display: 'flex',
       flexDirection: 'row-reverse',
-    },
-  },
-  MuiFormHelperText: {
-    root: {
-      height: 0,
-      marginTop: 0,
     },
   },
 };

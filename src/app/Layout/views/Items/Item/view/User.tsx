@@ -72,8 +72,8 @@ const User: React.FC<TYPES.ItemViewProps> = ({ classes, data: Data }) => {
             </Typography>
           </Box>
           <Box className={classes.tools}>
-            <EditSaveButton {...{ data, editable, setEditable }} itemName={KEYS.section} />
-            <DeleteButton _id={data.isActive ? '' : data._id} itemName={KEYS.section} />
+            {/* <EditSaveButton {...{ data, editable, setEditable }} itemName={KEYS.section} />
+            <DeleteButton _id={data.isActive ? '' : data._id} itemName={KEYS.section} /> */}
           </Box>
         </Box>
         <Divider />

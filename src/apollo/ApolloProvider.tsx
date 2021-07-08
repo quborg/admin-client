@@ -1,20 +1,20 @@
-import { useContext } from 'react';
-
-import { ApolloProvider as ApolloClientProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 
 import apolloClient from './ApolloClient';
-import { ErrorContext, ErrorProvider } from './links/error/contextProvider';
+import ErrorContext from './links/error/ContextProvider';
 
-const ApolloProvider: React.FC = ({ children }) => {
-  const handleUpdateErrors = useContext(ErrorContext);
+const { ErrorConsumer, ErrorProvider } = ErrorContext;
 
-  return (
-    <ErrorProvider>
-      <ApolloClientProvider client={apolloClient(handleUpdateErrors)}>
-        {children}
-      </ApolloClientProvider>
-    </ErrorProvider>
-  );
-};
+const ApolloClientProvider: React.FC = ({ children }) => (
+  <ErrorProvider>
+    <ErrorConsumer>
+      {(context) => (
+        <ApolloProvider client={apolloClient(context.handleUpdateErrors)}>
+          {children}
+        </ApolloProvider>
+      )}
+    </ErrorConsumer>
+  </ErrorProvider>
+);
 
-export default ApolloProvider;
+export default ApolloClientProvider;
